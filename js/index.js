@@ -15,9 +15,10 @@ window.onload = () => {
     }
   }
   let villainArr = []
-  let newHero = new Character (100, 390, 100, 100, 0, 2)
-  let gravityDown = 0.0005
-  let gravityUp = 1
+  let newHero = new Character (100, 390, 100, 100, 0, 5)
+  let gravityDown = 1
+  let gravityUp = 1.3
+  let endGame = false 
 
 
 	//----------------FUNCIONES---------------------//
@@ -38,7 +39,7 @@ window.onload = () => {
   }
 
   function moveHero() {
-    newHero.y -= 220
+    newHero.y -= 160
   }
 
   function heroGravityDown() {
@@ -64,12 +65,6 @@ window.onload = () => {
     }
   }
   
-  document.addEventListener('keydown', event =>{
-    if(event.key === 'ArrowUp'){
-      createHero()
-      moveHero()
-    }
-  })
 
 	function createVillain() {
     villainArr.forEach(villain => {
@@ -86,8 +81,8 @@ window.onload = () => {
 	function generateVillain() {
     setInterval(() => {
       console.log(villainArr)
-      villainArr.push(new Character(-100, 390, 100, 100))
-    }, 2000)
+      villainArr.push(new Character(-100, 390, 100, 100, 100, 0))
+    }, 2500)
   }
 
   function moveVillain () {
@@ -96,19 +91,46 @@ window.onload = () => {
     });
   }
 
+  function score () {
+    let score = 0
+    ctx.font = '16px Arial'
+    ctx.fillStyle = 'black'
+    ctx.fillText('Score: '+score, 8, 20)
+  }
+
+  function collision (){}
+
+  //---------BUTTONS--------/
+
+  document.addEventListener('keydown', event =>{
+    if(event.key === 'ArrowUp'){
+      createHero()
+      moveHero()
+    }
+  })
+
+  document.getElementById('speedup').onclick = (speedup) => {
+    villainArr.forEach(villain => {
+      villain.x  += villain.vx
+    });
+  }
+
+  document.getElementById('start').onclick = (startvillains) => {
+    generateVillain()
+  }
+
 
   function gameStage() {
 		createStage()
-		createHero()
+    createHero()
     createVillain()
     heroGravityDown()
     heroGravityUp()
     stopHero()
+    score ()
 
     requestAnimationFrame(gameStage)
   }
-
-  generateVillain()
 
   gameStage()
 
