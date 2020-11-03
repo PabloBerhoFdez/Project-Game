@@ -117,7 +117,7 @@ window.onload = () => {
   }
 
   function winGame(){
-    if(score === 2){
+    if(score === 5){
       document.getElementById('win-gif').style.display = 'block'
     }
   }
@@ -131,7 +131,7 @@ window.onload = () => {
     sound.pause()
   }
 
-  //---------BUTTONS--------/
+  //---------BUTTONS--------//
 
   document.addEventListener('keydown', event =>{
     if(event.key === 'ArrowUp'){
