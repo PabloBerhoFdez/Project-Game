@@ -15,12 +15,12 @@ window.onload = () => {
     }
   }
   let villainArr = []
-  let newHero = new Character (100, 390, 100, 100, 0, 5)
+  let newHero = new Character (500, 390, 100, 100, 0, 5)
   let gravityDown = 1
   let gravityUp = 1.3
-  let endGame = false 
-
-
+  let score = 0
+  let endGame = false
+  let sound = document.getElementById("background-audio")
 	//----------------FUNCIONES---------------------//
 	function createStage(){
 		const stageImg = new Image ()
@@ -30,7 +30,7 @@ window.onload = () => {
     stageImg.src = './images/canvasimg.png'
 	}
 
-	function createHero() {
+	function createHero(){
 		const heroImg = new Image ()
 		heroImg.onload = () => {
 			ctx.drawImage(heroImg, 500, newHero.y, 100, 100)
@@ -38,21 +38,21 @@ window.onload = () => {
 		heroImg.src = './images/midoriya.png'
   }
 
-  function moveHero() {
+  function moveHero(){
     newHero.y -= 160
   }
 
-  function heroGravityDown() {
+  function heroGravityDown(){
     newHero.vy += gravityDown
     newHero.y += newHero.vy
   }
 
-  function heroGravityUp() {
+  function heroGravityUp(){
     newHero.vy -= gravityUp
     newHero.y -= newHero.vy
   }
 
-  function stopHero() {
+  function stopHero(){
     let heroBottom = 390
     let heroUp = 170
     if (newHero.y > heroBottom) {
@@ -66,7 +66,7 @@ window.onload = () => {
   }
   
 
-	function createVillain() {
+	function createVillain(){
     villainArr.forEach(villain => {
       const villainImg = new Image ()
 		  villainImg.onload = () => {
@@ -78,27 +78,58 @@ window.onload = () => {
     moveVillain()
   }
 
-	function generateVillain() {
+	function generateVillain(){
     setInterval(() => {
       console.log(villainArr)
       villainArr.push(new Character(-100, 390, 100, 100, 100, 0))
     }, 2500)
   }
 
-  function moveVillain () {
+  function moveVillain(){
     villainArr.forEach(villain => {
-      return villain.x += 3
+      villain.x += 3
+      console.log(villain.x)
+      console.log(newHero.x)
     });
   }
 
-  function score () {
-    let score = 0
-    ctx.font = '16px Arial'
-    ctx.fillStyle = 'black'
-    ctx.fillText('Score: '+score, 8, 20)
+  function printScore(){
+    ctx.font = '16px sans-serif'
+    ctx.fillStyle = '#eb4d4b'
+    ctx.fillText(`Score: ${score}`, 100, 200)
   }
 
-  function collision (){}
+  function collision (){
+    villainArr.forEach(villain=>{
+      if(villain.x + villain.width > newHero.x && villain.x + villain.width < newHero.x + newHero.width && villain.y < newHero.y + newHero.height){
+        console.log(endGame)
+        endGame = true 
+      }
+      if(villain.x === 503){
+        score++
+      }
+    })
+  }
+
+  function gameOver(){
+    document.getElementById('lose-gif').style.display = 'block'
+    sound.pause()
+  }
+
+  function winGame(){
+    if(score === 2){
+      document.getElementById('win-gif').style.display = 'block'
+    }
+  }
+
+  function soundOn(){
+    sound.volume = .1
+    sound.play()
+  }
+
+  function soundOff(){
+    sound.pause()
+  }
 
   //---------BUTTONS--------/
 
@@ -117,17 +148,31 @@ window.onload = () => {
 
   document.getElementById('start').onclick = (startvillains) => {
     generateVillain()
+    soundOn()
   }
 
+  document.getElementById('sound-on').onclick = (soundon) => {
+    soundOn()
+  }
 
+  document.getElementById('sound-off').onclick = (soundoff) => {
+    soundOff()
+  }
+  
   function gameStage() {
-		createStage()
-    createHero()
-    createVillain()
-    heroGravityDown()
-    heroGravityUp()
-    stopHero()
-    score ()
+		if(!endGame){
+      createStage()
+      createHero()
+      createVillain()
+      heroGravityDown()
+      heroGravityUp()
+      stopHero()
+      printScore()
+      collision ()
+      winGame()
+    }else{
+      gameOver()
+    }
 
     requestAnimationFrame(gameStage)
   }

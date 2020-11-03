@@ -16,7 +16,6 @@
     border: none;
     padding: 20px;
     font-family: 'montserrat',sans-serif;
-    /* text-transform: uppercase; */
     border-radius: 6px;
     cursor: pointer;
     background-image: linear-gradient(to left,#eb4d4b,#ff7979,#eb4d4b);
@@ -30,7 +29,6 @@
     border: none;
     padding: 20px;
     font-family: 'montserrat',sans-serif;
-    /* text-transform: uppercase; */
     border-radius: 6px;
     cursor: pointer;
     background-image: linear-gradient(to left, #6c5ce7,#74b9ff,#6c5ce7);
@@ -41,6 +39,53 @@
     position: absolute;
     bottom: 23em;
     right: 58em;
+    border: none;
+    padding: 20px;
+    font-family: 'montserrat',sans-serif;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    background-image: linear-gradient(to left, #00b894,#55efc4,#00b894);
+    color: white;
+}
+
+#lose-gif{
+    position: absolute;
+    bottom: 27em;
+    right: 240px;
+    display: none;
+}
+
+#win-gif{
+    position: absolute;
+    bottom: 27em;
+    right: 198px;
+    display: none;
+}
+
+#sound-on{
+    position: absolute;
+    bottom: 15em;
+    right: 35em;
+    border: none;
+    padding: 20px;
+    font-family: 'montserrat',sans-serif;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    background-image: linear-gradient(to left, #00b894,#55efc4,#00b894);
+    color: white;
+    transition: .2s;
+}
+
+#sound-on:hover{
+    background-position: right;
+}
+
+#sound-off{
+    position: absolute;
+    bottom: 15em;
+    right: 20em;
     border: none;
     padding: 20px;
     font-family: 'montserrat',sans-serif;
