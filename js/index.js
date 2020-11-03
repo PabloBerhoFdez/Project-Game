@@ -21,6 +21,7 @@ window.onload = () => {
   let score = 0
   let endGame = false
   let sound = document.getElementById("background-audio")
+  let villainSpeed = 3
 	//----------------FUNCIONES---------------------//
 	function createStage(){
 		const stageImg = new Image ()
@@ -64,7 +65,6 @@ window.onload = () => {
       clearInterval(heroUp)
     }
   }
-  
 
 	function createVillain(){
     villainArr.forEach(villain => {
@@ -87,16 +87,14 @@ window.onload = () => {
 
   function moveVillain(){
     villainArr.forEach(villain => {
-      villain.x += 3
-      console.log(villain.x)
-      console.log(newHero.x)
+      villain.x += villainSpeed
     });
   }
 
   function printScore(){
-    ctx.font = '16px sans-serif'
-    ctx.fillStyle = '#eb4d4b'
-    ctx.fillText(`Score: ${score}`, 100, 200)
+    ctx.font = '28px sans-serif'
+    ctx.fillStyle = '#ff3838'
+    ctx.fillText(`Score: ${score}`, 580, 100)
   }
 
   function collision (){
@@ -140,10 +138,12 @@ window.onload = () => {
     }
   })
 
-  document.getElementById('speedup').onclick = (speedup) => {
-    villainArr.forEach(villain => {
-      villain.x  += villain.vx
-    });
+  document.getElementById('speedup').onclick = () => {
+    villainSpeed += 3
+  }
+
+  document.getElementById('speeddown').onclick = () => {
+    villainSpeed -= 3
   }
 
   document.getElementById('start').onclick = (startvillains) => {
