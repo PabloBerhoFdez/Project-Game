@@ -73,7 +73,7 @@
     text-transform: uppercase;
     border-radius: 6px;
     cursor: pointer;
-    background-image: linear-gradient(to left, #00b894,#55efc4,#00b894);
+    background-image: linear-gradient(to left, #6c5ce7,#74b9ff,#6c5ce7);
     color: white;
     transition: .2s;
 }
@@ -92,6 +92,6 @@
     text-transform: uppercase;
     border-radius: 6px;
     cursor: pointer;
-    background-image: linear-gradient(to left, #00b894,#55efc4,#00b894);
+    background-image: linear-gradient(to left, #eb4d4b,#ff7979,#eb4d4b);
     color: white;
 }

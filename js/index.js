@@ -130,9 +130,7 @@ window.onload = () => {
   function soundOff(){
     sound.pause()
   }
-
   //---------BUTTONS--------//
-
   document.addEventListener('keydown', event =>{
     if(event.key === 'ArrowUp'){
       createHero()
@@ -178,7 +176,5 @@ window.onload = () => {
 
     requestAnimationFrame(gameStage)
   }
-
   gameStage()
-
 }
