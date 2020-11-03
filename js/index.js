@@ -1,9 +1,8 @@
 window.onload = () => {
 
-  //-----------------------VARIABLES--------------------//
-
   const canvas = document.getElementById('canvas')
   const ctx = canvas.getContext('2d')
+
   class Character {
     constructor(_x, _y, _width, _height, _vx, _vy) {
       this.x = _x
@@ -14,6 +13,8 @@ window.onload = () => {
       this.vy = _vy
     }
   }
+  //-----------------------VARIABLES--------------------//
+
   let villainArr = []
   let newHero = new Character (500, 390, 100, 100, 0, 5)
   let gravityDown = 1
@@ -22,6 +23,7 @@ window.onload = () => {
   let endGame = false
   let sound = document.getElementById("background-audio")
   let villainSpeed = 3
+
 	//----------------FUNCIONES---------------------//
 	function createStage(){
 		const stageImg = new Image ()
@@ -103,7 +105,7 @@ window.onload = () => {
         console.log(endGame)
         endGame = true 
       }
-      if(villain.x === 503){
+      if(villain.x === 512){
         score++
       }
     })
