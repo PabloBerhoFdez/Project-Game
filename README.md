@@ -1,11 +1,7 @@
 # Project-Game
 ## **Introduction**
 On this repository you can find my first project of Ironhack... Yes! A videogame!<br/>
-<<<<<<< HEAD
-For this project I used Javascript with mainly Canvas and a little bit of DOM manipulation.
-=======
 For this project I used Javascript with mainly Canvas and a little bit of DOM manipulation!<br/>
->>>>>>> c439245ecf84caa8f400846f4d77855c44058063
 This project is based on the famous anime "My Hero Academia". Your focus will be jumping over the enemies unless you want to be defeated by the villains...
 ## **Controls**
 - *Start Game*: You'll need to press this button to start the game. Villains will start coming to defeate you... Be careful and jump with the 'ArrowUp' on your keyboard.
