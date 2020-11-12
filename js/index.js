@@ -25,18 +25,18 @@ window.onload = () => {
   let villainSpeed = 3
 
 	//----------------FUNCIONES---------------------//
-	function createStage(){
-		const stageImg = new Image ()
-  	stageImg.onload = () => {
-    	ctx.drawImage(stageImg, 0, 0, 700, 500)
+  function createStage(){
+	  const stageImg = new Image ()
+    stageImg.onload = () => {
+      ctx.drawImage(stageImg, 0, 0, 700, 500)
   	}
-  	stageImg.src = './images/canvasimg.png'
+    stageImg.src = './images/canvasimg.png'
 	}
 
-	function createHero(){
-		const heroImg = new Image ()
-		heroImg.onload = () => {
-			ctx.drawImage(heroImg, 500, newHero.y, 100, 100)
+  function createHero(){
+	  const heroImg = new Image ()
+	  heroImg.onload = () => {
+		  ctx.drawImage(heroImg, 500, newHero.y, 100, 100)
 		}
 		heroImg.src = './images/midoriya.png'
   }
