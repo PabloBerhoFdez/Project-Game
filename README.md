@@ -1,6 +1,6 @@
 # Project-Game
 ## **Introduction**
-On this repository you can find muy first project of Ironhack... Yes! A videogame!
+On this repository you can find my first project of Ironhack... Yes! A videogame!<br/>
 For this project I used Javascript with mainly Canvas and a little bit of DOM manipulation.
 This project is based on the famous anime "My Hero Academia". Your focus will be jumping over the enemies unless you want to be defeated by the villains...
 ## **Setup**
